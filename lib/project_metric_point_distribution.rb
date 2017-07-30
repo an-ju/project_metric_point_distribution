@@ -36,9 +36,15 @@ class ProjectMetricPointDistribution
   def image
     @raw_data ||= stories
     synthesize
+    keys = []
+    values = []
+    @student_points.each do |k, v|
+      keys << k
+      values << v
+    end
     @image ||= { chartType: 'point_distribution_v2',
                  textTitle: 'Point Distribution',
-                 data: @student_points }.to_json
+                 data: { data: values, series: keys } }.to_json
   end
 
   def self.credentials
