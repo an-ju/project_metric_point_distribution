@@ -36,7 +36,7 @@ class ProjectMetricPointDistribution
   def image
     @raw_data ||= stories
     synthesize
-    @image ||= { chartType: 'point_distribution',
+    @image ||= { chartType: 'point_distribution_v2',
                  textTitle: 'Point Distribution',
                  data: @student_points }.to_json
   end
