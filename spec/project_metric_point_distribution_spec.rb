@@ -1,11 +1,65 @@
 require "spec_helper"
 
 RSpec.describe ProjectMetricPointDistribution do
-  it "has a version number" do
-    expect(ProjectMetricPointDistribution::VERSION).not_to be nil
+  context 'meta data' do
+    it "has a version number" do
+      expect(ProjectMetricPointDistribution::VERSION).not_to be nil
+    end
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  context 'image and score' do
+    before :each do
+      @conn = double('conn')
+      stories_resp = double('stories')
+      allow(stories_resp).to receive(:body) { File.read './spec/data/stories.json' }
+      memberships_resp = double('memberships')
+      allow(memberships_resp).to receive(:body) { File.read './spec/data/membership.json' }
+
+      allow(Faraday).to receive(:new).and_return(@conn)
+      allow(@conn).to receive(:headers).and_return({})
+      allow(@conn).to receive(:get).with('projects/test/stories').and_return(stories_resp)
+      allow(@conn).to receive(:get).with('projects/test/memberships').and_return(memberships_resp)
+    end
+
+    subject(:metric) do
+      described_class.new(tracker_project: 'test', tracker_token: 'test token')
+    end
+
+    it 'generates the right score' do
+      expect(metric.score).to eql(1.0/3.0)
+    end
+
+    it 'generates an image' do
+      expect(JSON.parse(metric.image)).to have_key('data')
+    end
+
+    it 'sets image data correctly' do
+      image = JSON.parse(metric.image)
+      expect(image['data']['unstarted'].length).to eql(2)
+      expect(image['data']['finished'].length).to eql(1)
+      expect(image['data']['tracker_link']).not_to be_nil
+    end
   end
+
+  context 'generate test' do
+    it 'generates three fake metrics' do
+      expect(described_class.fake_data.length).to eql(3)
+    end
+
+    it 'generates the correct metric' do
+      fake_metric = described_class.fake_data.first
+      expect(fake_metric).to have_key(:image)
+      expect(fake_metric).to have_key(:score)
+    end
+
+    it 'contains the correct image data' do
+      fake_image = JSON.parse(described_class.fake_data.first[:image])
+      expect(fake_image['data']['started']).not_to be_nil
+      expect(fake_image['data']['unstarted']).not_to be_nil
+      expect(fake_image['data']['planned']).not_to be_nil
+      expect(fake_image['data']['finished']).not_to be_nil
+      expect(fake_image['data']['delivered']).not_to be_nil
+    end
+  end
+
 end

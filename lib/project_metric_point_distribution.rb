@@ -1,4 +1,5 @@
 require "project_metric_point_distribution/version"
+require 'project_metric_point_distribution/test_generator'
 require 'faraday'
 require 'json'
 
@@ -13,12 +14,12 @@ class ProjectMetricPointDistribution
     @raw_data = raw_data
 
     @max_iter = 0
-    @id2name = {}
   end
 
   def refresh
-    @image = @score = nil
-    @raw_data ||= stories
+    set_stories
+    set_memberships
+    @raw_data = { stories: @stories, memberships: @memberships }.to_json
   end
 
   def raw_data=(new)
@@ -28,23 +29,25 @@ class ProjectMetricPointDistribution
   end
 
   def score
-    @raw_data ||= stories
-    synthesize
-    @score ||= student_point_std
+    refresh unless @raw_data
+    scheduled_stories.empty? ? 0 : finished_stories.length.to_f / scheduled_stories.length.to_f
   end
 
   def image
-    @raw_data ||= stories
-    synthesize
-    keys = []
-    values = []
-    @student_points.each do |k, v|
-      keys << k
-      values << v
-    end
-    @image ||= { chartType: 'point_distribution_v2',
-                 textTitle: 'Point Distribution',
-                 data: { data: values, series: keys } }.to_json
+    refresh unless @raw_data
+    @image ||= { chartType: 'point_distribution',
+                 data: { unstarted: stories_at(['unstarted']),
+                         planned: stories_at(['planned']),
+                         started: stories_at(['started']),
+                         finished: stories_at(['finished']),
+                         delivered: stories_at(['delivered']),
+                         tracker_link: "https://www.pivotaltracker.com/n/projects/#{@project}"
+                 } }.to_json
+  end
+
+  def commit_sha
+    refresh unless @raw_data
+    nil
   end
 
   def self.credentials
@@ -53,39 +56,27 @@ class ProjectMetricPointDistribution
 
   private
 
-  def stories
-    JSON.parse(@conn.get("projects/#{@project}/stories").body)
+  def set_stories
+    @stories = JSON.parse(@conn.get("projects/#{@project}/stories").body)
   end
 
-  def memberships
-    JSON.parse(@conn.get("projects/#{@project}/memberships").body)
+  def set_memberships
+    @memberships = JSON.parse(@conn.get("projects/#{@project}/memberships").body)
   end
 
-  def synthesize
-    @raw_data ||= stories
-    @student_points = @raw_data.inject(Hash.new(0)) do |sum, story|
-      if %I[finished delivered accepted].include? story['current_state'].to_sym
-        story['owner_ids'].each do |owner|
-          sum[id2name[owner]] += story['estimate'].nil? ? 0 : story['estimate']
-        end
-      end
-      sum
-    end
+  def name_of(uid)
+    @memberships.select { |mem| mem['person']['id'].eql? uid }.first
   end
 
-  def student_point_std
-    values = @student_points.map { |_, v| v }
-    sum = values.inject(0.0) { |sum, v| sum + v }
-    mean = sum / values.length.to_f
-    variance = values.inject(0.0) { |sum, v| sum + (v - mean)**2 }
-    Math.sqrt(variance / (values.length - 1).to_f)
+  def scheduled_stories
+    stories_at %w[unstarted planned started finished delivered]
   end
 
-  def id2name
-    @id2name unless @id2name.empty?
-    memberships.each do |mem|
-      @id2name[mem['person']['id']] = mem['person']['name']
-    end
-    @id2name
+  def finished_stories
+    stories_at %w[finished delivered]
+  end
+
+  def stories_at(state_list)
+    @stories.select { |s| state_list.any? { |state| s['current_state'].eql? state } }
   end
 end
