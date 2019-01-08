@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d867e750-77fb-4db9-8e50-4ab25be4b1fc" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/project_metric_point_distribution/test_generator.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/data/membership.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/data/stories.json" afterDir="false" />
+    <list default="true" id="d867e750-77fb-4db9-8e50-4ab25be4b1fc" name="Default" comment="Upgrade the gem to a new API.">
       <change beforePath="$PROJECT_DIR$/.idea/project_metric_point_distribution.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project_metric_point_distribution.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/project_metric_point_distribution.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/project_metric_point_distribution.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/project_metric_point_distribution/test_generator.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/project_metric_point_distribution/test_generator.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/project_metric_point_distribution/version.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/project_metric_point_distribution/version.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_metric_point_distribution.gemspec" beforeDir="false" afterPath="$PROJECT_DIR$/project_metric_point_distribution.gemspec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spec/project_metric_point_distribution_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/project_metric_point_distribution_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/spec_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/spec_helper.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,26 +27,32 @@
     <session id="-1801503808">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="Gemfile" value="28" />
+          <entry key="gemspec" value="30" />
           <entry key="json" value="121" />
-          <entry key="rb" value="7281" />
+          <entry key="rb" value="8636" />
+          <entry key="txt" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="121" />
-          <entry key="Ruby" value="7281" />
+          <entry key="PLAIN_TEXT" value="39" />
+          <entry key="Ruby" value="8694" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="4" />
-          <entry key="Ruby" value="5" />
+          <entry key="Ruby" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.actions.runAnything" />
@@ -53,28 +60,20 @@
       <usages-collector id="statistics.js.language.service.starts" />
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="Gemfile" value="1" />
           <entry key="json" value="4" />
-          <entry key="rb" value="5" />
+          <entry key="rb" value="10" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project_metric_point_distribution.gemspec">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/project_metric_point_distribution.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+            <state relative-caret-position="360">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
@@ -82,8 +81,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/project_metric_point_distribution_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="446">
+              <caret line="52" column="54" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/project_metric_point_distribution/test_generator.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -103,13 +111,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/project_metric_point_distribution.gemspec" />
-        <option value="$PROJECT_DIR$/lib/project_metric_point_distribution/version.rb" />
         <option value="$PROJECT_DIR$/spec/data/membership.json" />
         <option value="$PROJECT_DIR$/spec/data/stories.json" />
-        <option value="$PROJECT_DIR$/lib/project_metric_point_distribution.rb" />
-        <option value="$PROJECT_DIR$/spec/project_metric_point_distribution_spec.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/project_metric_point_distribution.gemspec" />
+        <option value="$PROJECT_DIR$/spec/spec_helper.rb" />
         <option value="$PROJECT_DIR$/lib/project_metric_point_distribution/test_generator.rb" />
+        <option value="$PROJECT_DIR$/spec/project_metric_point_distribution_spec.rb" />
+        <option value="$PROJECT_DIR$/lib/project_metric_point_distribution.rb" />
+        <option value="$PROJECT_DIR$/lib/project_metric_point_distribution/version.rb" />
       </list>
     </option>
   </component>
@@ -119,7 +129,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="180" />
     <option name="width" value="1440" />
     <option name="height" value="835" />
@@ -167,7 +177,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/anju/RubymineProjects/metrics/project_metric_point_distribution/spec/data/stories.json" />
+    <property name="SearchEverywhereHistoryKey" value="spec&#9;FILE&#9;file:///Users/anju/RubymineProjects/metrics/project_metric_point_distribution/spec/project_metric_point_distribution_spec.rb&#10;spec_help&#9;FILE&#9;file:///Users/anju/RubymineProjects/metrics/project_metric_point_distribution/spec/spec_helper.rb&#10;Gemfile&#9;FILE&#9;file:///Users/anju/RubymineProjects/metrics/project_metric_point_distribution/Gemfile" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
@@ -248,32 +258,40 @@
       <workItem from="1501440818381" duration="5343000" />
       <workItem from="1501451932814" duration="180000" />
       <workItem from="1509087053455" duration="588000" />
-      <workItem from="1542050045235" duration="6415000" />
+      <workItem from="1542050045235" duration="7120000" />
+      <workItem from="1546932597713" duration="712000" />
     </task>
+    <task id="LOCAL-00001" summary="Upgrade the gem to a new API.">
+      <created>1542058958790</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1542058958790</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12526000" />
+    <option name="totallyTimeSpent" value="13943000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25878593" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26144835" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33011582" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32851636" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3371869" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32851636" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3371869" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -286,25 +304,15 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Upgrade the gem to a new API." />
+    <option name="LAST_COMMIT_MESSAGE" value="Upgrade the gem to a new API." />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/project_metric_point_distribution/version.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/data/membership.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="611">
           <caret line="148" column="1" selection-start-line="148" selection-start-column="1" selection-end-line="148" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project_metric_point_distribution.gemspec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -315,24 +323,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/project_metric_point_distribution_spec.rb">
+    <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="105">
+          <caret line="7" column="76" selection-start-line="7" selection-start-column="76" selection-end-line="7" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project_metric_point_distribution.gemspec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/project_metric_point_distribution/test_generator.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+        <state relative-caret-position="176">
+          <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/project_metric_point_distribution_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="52" column="54" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/project_metric_point_distribution/version.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/project_metric_point_distribution.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        <state relative-caret-position="360">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>

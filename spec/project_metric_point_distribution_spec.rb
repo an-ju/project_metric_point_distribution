@@ -9,16 +9,10 @@ RSpec.describe ProjectMetricPointDistribution do
 
   context 'image and score' do
     before :each do
-      @conn = double('conn')
-      stories_resp = double('stories')
-      allow(stories_resp).to receive(:body) { File.read './spec/data/stories.json' }
-      memberships_resp = double('memberships')
-      allow(memberships_resp).to receive(:body) { File.read './spec/data/membership.json' }
-
-      allow(Faraday).to receive(:new).and_return(@conn)
-      allow(@conn).to receive(:headers).and_return({})
-      allow(@conn).to receive(:get).with('projects/test/stories').and_return(stories_resp)
-      allow(@conn).to receive(:get).with('projects/test/memberships').and_return(memberships_resp)
+      stub_request(:get, 'https://www.pivotaltracker.com/services/v5/projects/test/stories')
+        .to_return(body: File.read('spec/data/stories.json'))
+      stub_request(:get, 'https://www.pivotaltracker.com/services/v5/projects/test/memberships')
+        .to_return(body: File.read('spec/data/membership.json'))
     end
 
     subject(:metric) do
@@ -30,14 +24,14 @@ RSpec.describe ProjectMetricPointDistribution do
     end
 
     it 'generates an image' do
-      expect(JSON.parse(metric.image)).to have_key('data')
+      expect(metric.image).to have_key(:data)
     end
 
     it 'sets image data correctly' do
-      image = JSON.parse(metric.image)
-      expect(image['data']['unstarted'].length).to eql(2)
-      expect(image['data']['finished'].length).to eql(1)
-      expect(image['data']['tracker_link']).not_to be_nil
+      image = metric.image
+      expect(image[:data][:unstarted].length).to eql(2)
+      expect(image[:data][:finished].length).to eql(1)
+      expect(image[:data][:tracker_link]).not_to be_nil
     end
   end
 
@@ -53,12 +47,12 @@ RSpec.describe ProjectMetricPointDistribution do
     end
 
     it 'contains the correct image data' do
-      fake_image = JSON.parse(described_class.fake_data.first[:image])
-      expect(fake_image['data']['started']).not_to be_nil
-      expect(fake_image['data']['unstarted']).not_to be_nil
-      expect(fake_image['data']['planned']).not_to be_nil
-      expect(fake_image['data']['finished']).not_to be_nil
-      expect(fake_image['data']['delivered']).not_to be_nil
+      fake_image = described_class.fake_data.first[:image]
+      expect(fake_image[:data][:started]).not_to be_nil
+      expect(fake_image[:data][:unstarted]).not_to be_nil
+      expect(fake_image[:data][:planned]).not_to be_nil
+      expect(fake_image[:data][:finished]).not_to be_nil
+      expect(fake_image[:data][:delivered]).not_to be_nil
     end
   end
 

@@ -20,7 +20,7 @@ class ProjectMetricPointDistribution
     finished = stories.select { |k, v| k.eql?(:finished) or k.eql?(:delivered) }
     finished = finished.values.reduce(:+)
     all_stories = stories.values.reduce(:+)
-    { image: { chatType: 'point_distribution', data: image_data }.to_json,
+    { image: { chatType: 'point_distribution', data: image_data },
       score: finished.to_f / all_stories.to_f }
   end
 

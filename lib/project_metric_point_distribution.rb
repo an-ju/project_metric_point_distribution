@@ -2,70 +2,53 @@ require "project_metric_point_distribution/version"
 require 'project_metric_point_distribution/test_generator'
 require 'faraday'
 require 'json'
+require 'project_metric_base'
 
 class ProjectMetricPointDistribution
-  attr_reader :raw_data
+  include ProjectMetricBase
+  add_credentials %I[tracker_project tracker_token]
+  add_raw_data %w[tracker_stories tracker_memberships]
 
   def initialize(credentials, raw_data = nil)
     @project = credentials[:tracker_project]
     @conn = Faraday.new(url: 'https://www.pivotaltracker.com/services/v5')
     @conn.headers['Content-Type'] = 'application/json'
     @conn.headers['X-TrackerToken'] = credentials[:tracker_token]
-    @raw_data = raw_data
 
+    complete_with raw_data
     @max_iter = 0
   end
 
-  def refresh
-    set_stories
-    set_memberships
-    @raw_data = { stories: @stories, memberships: @memberships }.to_json
-  end
-
-  def raw_data=(new)
-    @raw_data = new
-    @score = nil
-    @image = nil
-  end
-
   def score
-    refresh unless @raw_data
     scheduled_stories.empty? ? 0 : finished_stories.length.to_f / scheduled_stories.length.to_f
   end
 
   def image
-    refresh unless @raw_data
-    @image ||= { chartType: 'point_distribution',
-                 data: { unstarted: stories_at(['unstarted']),
-                         planned: stories_at(['planned']),
-                         started: stories_at(['started']),
-                         finished: stories_at(['finished']),
-                         delivered: stories_at(['delivered']),
-                         tracker_link: "https://www.pivotaltracker.com/n/projects/#{@project}"
-                 } }.to_json
+    { chartType: 'point_distribution',
+      data: { unstarted: stories_at(['unstarted']),
+              planned: stories_at(['planned']),
+              started: stories_at(['started']),
+              finished: stories_at(['finished']),
+              delivered: stories_at(['delivered']),
+              tracker_link: "https://www.pivotaltracker.com/n/projects/#{@project}" } }
   end
 
-  def commit_sha
-    refresh unless @raw_data
+  def obj_id
     nil
-  end
-
-  def self.credentials
-    %I[tracker_project tracker_token]
   end
 
   private
 
-  def set_stories
-    @stories = JSON.parse(@conn.get("projects/#{@project}/stories").body)
+  def tracker_stories
+    @tracker_stories = JSON.parse(@conn.get("projects/#{@project}/stories").body)
   end
 
-  def set_memberships
-    @memberships = JSON.parse(@conn.get("projects/#{@project}/memberships").body)
+  def tracker_memberships
+    @tracker_memberships = JSON.parse(@conn.get("projects/#{@project}/memberships").body)
   end
 
   def name_of(uid)
-    @memberships.select { |mem| mem['person']['id'].eql? uid }.first
+    @tracker_memberships.select { |mem| mem['person']['id'].eql? uid }.first
   end
 
   def scheduled_stories
@@ -77,6 +60,6 @@ class ProjectMetricPointDistribution
   end
 
   def stories_at(state_list)
-    @stories.select { |s| state_list.any? { |state| s['current_state'].eql? state } }
+    @tracker_stories.select { |s| state_list.any? { |state| s['current_state'].eql? state } }
   end
 end
