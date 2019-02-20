@@ -20,7 +20,7 @@ RSpec.describe ProjectMetricPointDistribution do
     end
 
     it 'generates the right score' do
-      expect(metric.score).to eql(1.0/3.0)
+      expect(metric.score).to eql((1.0/3.0)*100.0)
     end
 
     it 'generates an image' do

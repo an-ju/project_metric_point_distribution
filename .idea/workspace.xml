@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d867e750-77fb-4db9-8e50-4ab25be4b1fc" name="Default" comment="Upgrade the gem to a new API.">
-      <change beforePath="$PROJECT_DIR$/.idea/project_metric_point_distribution.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project_metric_point_distribution.iml" afterDir="false" />
+    <list default="true" id="d867e750-77fb-4db9-8e50-4ab25be4b1fc" name="Default" comment="upgraded to use project_metric_base gem.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/project_metric_point_distribution.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/project_metric_point_distribution.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/project_metric_point_distribution/test_generator.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/project_metric_point_distribution/test_generator.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/project_metric_point_distribution/version.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/project_metric_point_distribution/version.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_metric_point_distribution.gemspec" beforeDir="false" afterPath="$PROJECT_DIR$/project_metric_point_distribution.gemspec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/project_metric_point_distribution_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/project_metric_point_distribution_spec.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/spec_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/spec_helper.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +19,7 @@
     <session id="-1801503808">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.opened" value="2" />
@@ -39,13 +31,13 @@
           <entry key="gemspec" value="30" />
           <entry key="json" value="121" />
           <entry key="rb" value="8636" />
-          <entry key="txt" value="39" />
+          <entry key="txt" value="87" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="121" />
-          <entry key="PLAIN_TEXT" value="39" />
+          <entry key="PLAIN_TEXT" value="87" />
           <entry key="Ruby" value="8694" />
         </counts>
       </usages-collector>
@@ -259,7 +251,7 @@
       <workItem from="1501451932814" duration="180000" />
       <workItem from="1509087053455" duration="588000" />
       <workItem from="1542050045235" duration="7120000" />
-      <workItem from="1546932597713" duration="712000" />
+      <workItem from="1546932597713" duration="754000" />
     </task>
     <task id="LOCAL-00001" summary="Upgrade the gem to a new API.">
       <created>1542058958790</created>
@@ -268,11 +260,18 @@
       <option name="project" value="LOCAL" />
       <updated>1542058958790</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="upgraded to use project_metric_base gem.">
+      <created>1546933329971</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1546933329971</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13943000" />
+    <option name="totallyTimeSpent" value="13985000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
@@ -306,7 +305,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Upgrade the gem to a new API." />
-    <option name="LAST_COMMIT_MESSAGE" value="Upgrade the gem to a new API." />
+    <MESSAGE value="upgraded to use project_metric_base gem." />
+    <option name="LAST_COMMIT_MESSAGE" value="upgraded to use project_metric_base gem." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/spec/data/membership.json">

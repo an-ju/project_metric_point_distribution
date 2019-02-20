@@ -20,7 +20,7 @@ class ProjectMetricPointDistribution
   end
 
   def score
-    scheduled_stories.empty? ? 0 : finished_stories.length.to_f / scheduled_stories.length.to_f
+    scheduled_stories.empty? ? 0 : (finished_stories.length.to_f / scheduled_stories.length.to_f) * 100.0
   end
 
   def image

@@ -21,7 +21,7 @@ class ProjectMetricPointDistribution
     finished = finished.values.reduce(:+)
     all_stories = stories.values.reduce(:+)
     { image: { chatType: 'point_distribution', data: image_data },
-      score: finished.to_f / all_stories.to_f }
+      score: (finished.to_f / all_stories.to_f)*100.0 }
   end
 
 
